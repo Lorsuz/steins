@@ -37,13 +37,13 @@ app.post('/api/register', async (req, res) => {
     users.forEach((element) => {
       console.log(element);
     });
-    res.json({ message: 'Registration successful' });
+    res.json({ message: 'Registrado com sucesso, checado no back' });
   } catch (error) {
     handleRegistrationError(error, res);
   }
 });
 function handleRegistrationError(error, res) {
-  res.status(400).json({ error: error.message, message: 'Registration unsuccessful' });
+  res.status(400).json({ error: error.message, message: 'Registração sem sucesso, erro na rota' });
 }
 
 app.post('/api/login', async (req, res) => {
@@ -67,13 +67,13 @@ app.post('/api/login', async (req, res) => {
     }
 
     if (!user) {
-      res.status(401).json({ message: 'Invalid credentials' });
+      res.status(401).json({ message: 'Credencias Invalidas, checadas no back' });
     } else {
 
       const token = jwt.sign({ userId: user.id }, secretKey);
 
       console.log(token);
-      res.json({ message: 'Login successful', token });
+      res.json({ message: 'Logado com sucesso, checado no back', token });
     }
   } catch (error) {
     res.status(400).json({ error: error.message });

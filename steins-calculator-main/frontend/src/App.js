@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Route, Routes, Link, Navigate, Outlet, useNavigate } from 'react-router-dom';
 import z from 'zod';
+import Login from './components/forms/Login';
+import Register from './components/forms/Register';
+import Application from './components/pages/Aplication';
 
 
 const loginSchema = z.object( {
@@ -54,7 +57,7 @@ function App () {
 			const formData = { username, password };
 			loginSchema.parse( formData );
 		} catch (error) {
-			setLoginError("Invalid credentials");
+			setLoginError("Credencias Invalidas, checadas no front");
 		}
 		try {
 			const response = await fetch( `${ apiUrl }/login`, {
@@ -78,7 +81,8 @@ function App () {
 
 	return (
 		<div className="App">
-			<h1>Steins;Calculator</h1>
+			<h1>It's Adilson Time</h1>
+			{!token && 
 			<nav>
 				<ul>
 					<li>
@@ -88,7 +92,7 @@ function App () {
 						<Link to="/register">Register</Link>
 					</li>
 				</ul>
-			</nav>
+			</nav>}
 			<Routes>
 				<Route path="/login" element={ <Login onLogin={ handleLogin } loginError={loginError} /> } />
 				<Route path="/register" element={ <Register onRegister={ handleRegister } registerError={registerError} /> } />
@@ -101,84 +105,9 @@ function App () {
 	);
 }
 
-
-function Login ( { onLogin, loginError } ) {
-	const [ username, setUsername ] = useState( '' );
-	const [ password, setPassword ] = useState( '' );
-
-	const handleSubmit = ( e ) => {
-		e.preventDefault();
-		onLogin( username, password );
-	};
-
-	return (
-		<div>
-			<h2>Login</h2>
-			<form onSubmit={ handleSubmit }>
-				<input
-					type="text"
-					placeholder="Username"
-					value={ username }
-					onChange={ ( e ) => setUsername( e.target.value ) }
-				/>
-				<input
-					type="password"
-					placeholder="Password"
-					value={ password }
-					onChange={ ( e ) => setPassword( e.target.value ) }
-				/>
-
-				{loginError && <div className="error">{loginError}</div>}
-				
-				<button type="submit">Login</button>
-			</form>
-		</div>
-	);
-}
-
-function Register ( { onRegister, registerError } ) {
-	const [ username, setUsername ] = useState( '' );
-	const [ password, setPassword ] = useState( '' );
-
-	const handleSubmit = ( e ) => {
-		e.preventDefault();
-		onRegister( username, password );
-	};
-
-	return (
-		<div>
-			<h2>Register</h2>
-			<form onSubmit={ handleSubmit }>
-				<input
-					type="text"
-					placeholder="Username"
-					value={ username }
-					onChange={ ( e ) => setUsername( e.target.value ) }
-				/>
-				<input
-					type="password"
-					placeholder="Password"
-					value={ password }
-					onChange={ ( e ) => setPassword( e.target.value ) }
-				/>
-				 {registerError && <div className="error">{registerError}</div>}
-				<button type="submit">Register</button>
-			</form>
-		</div>
-	);
-}
-
 function PrivateRoute ( { token } ) {
 	return token ? <Outlet /> : <Navigate to="/login" />;
 }
 
-function Application () {
-	return (
-		<div>
-			<h1>Application</h1>
-			<p>This is a private route.</p>
-		</div>
-	);
-}
 
 export default App;
