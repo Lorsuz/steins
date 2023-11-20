@@ -16,9 +16,7 @@ const users = [
 	{ id: 1, username: 'Felipe', password: '$2b$10$WLnzB59fKZn5Q2c3DOQqDuQ57APKSU3xgilUnw68/jHpGcdy6PxPi' },
 	{ id: 2, username: 'Ariel', password: '$2b$10$2HLF5yvDPbwGFDbuIILUme0y6kCVM1y8Urq6oNmCOQSbzrynflAEC' }
 ];
-type Mens = {
-	message: string;
-};
+
 router.post('/api/register', async (req: Request, res: Response) => {
 	try {
 		type User = {
@@ -32,8 +30,12 @@ router.post('/api/register', async (req: Request, res: Response) => {
 		users.push({ id: users.length + 1, username, password: passwordHashed });
 
 		res.json({ message: 'Registration successful' });
-	} catch (error: unknown) {
-		res.status(400).json({ error: error.message, message: 'Registration unsuccessful' });
+	} catch (error) {
+		if (error instanceof Error) {
+			res.status(400).json({ error: error.message, message: 'Registration unsuccessful' });
+		} else {
+			res.status(500).json({ error: 'An unexpected error occurred', message: 'Registration unsuccessful' });
+		}
 	}
 });
 
@@ -60,8 +62,12 @@ router.post('/api/login', async (req, res) => {
 			console.log(token);
 			res.json({ message: 'Login successful', token });
 		}
-	} catch (error: unknown) {
-		res.status(400).json({ error: error.message });
+	} catch (error) {
+		if (error instanceof Error) {
+			res.status(400).json({ error: error.message, message: 'Login unsuccessful' });
+		} else {
+			res.status(500).json({ error: 'An unexpected error occurred', message: 'Login unsuccessful' });
+		}
 	}
 });
 

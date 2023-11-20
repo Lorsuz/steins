@@ -33,7 +33,12 @@ router.post('/api/register', (req, res) => __awaiter(void 0, void 0, void 0, fun
         res.json({ message: 'Registration successful' });
     }
     catch (error) {
-        res.status(400).json({ error: error.message, message: 'Registration unsuccessful' });
+        if (error instanceof Error) {
+            res.status(400).json({ error: error.message, message: 'Registration unsuccessful' });
+        }
+        else {
+            res.status(500).json({ error: 'An unexpected error occurred', message: 'Registration unsuccessful' });
+        }
     }
 }));
 router.post('/api/login', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -58,7 +63,12 @@ router.post('/api/login', (req, res) => __awaiter(void 0, void 0, void 0, functi
         }
     }
     catch (error) {
-        res.status(400).json({ error: error.message });
+        if (error instanceof Error) {
+            res.status(400).json({ error: error.message, message: 'Login unsuccessful' });
+        }
+        else {
+            res.status(500).json({ error: 'An unexpected error occurred', message: 'Login unsuccessful' });
+        }
     }
 }));
 export default router;
