@@ -1,11 +1,11 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import Layout from '../../layouts/PagesLayout';
-import { useState } from 'react';
 import { registerSchema } from '../../config/registerSchema';
 import AuthContext from '../../context/AuthContext';
 
 function FormRegister(): React.FunctionComponentElement<JSX.Element> {
 	const [username, setUsername] = useState('');
+	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
 	const [registerError, setRegisterError] = useState('');
@@ -16,7 +16,7 @@ function FormRegister(): React.FunctionComponentElement<JSX.Element> {
 		console.log(username, password);
 
 		try {
-			const formData = { username, password };
+			const formData = { username, email, password };
 			registerSchema.parse(formData);
 		} catch (error) {
 			setRegisterError('Invalid credentials');
@@ -26,7 +26,7 @@ function FormRegister(): React.FunctionComponentElement<JSX.Element> {
 			const response = await fetch(`${apiUrl}/register`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ username, password })
+				body: JSON.stringify({ username, email, password })
 			});
 			const data = await response.json();
 
@@ -46,6 +46,7 @@ function FormRegister(): React.FunctionComponentElement<JSX.Element> {
 			<h2>Register</h2>
 			<form onSubmit={handleSubmit}>
 				<input type='text' placeholder='Username' value={username} onChange={e => setUsername(e.target.value)} />
+				<input type='email' placeholder='E-mail' value={email} onChange={e => setEmail(e.target.value)} />
 				<input type='password' placeholder='Password' value={password} onChange={e => setPassword(e.target.value)} />
 				{registerError && <div className='error'>{registerError}</div>}
 				<button type='submit'>Register</button>

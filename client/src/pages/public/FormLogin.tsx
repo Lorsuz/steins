@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import Layout from '../../layouts/PagesLayout';
 import { loginSchema } from '../../config/LoginSchema';
-import { useNavigate, Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
 
 export function FormLogin(): React.FunctionComponentElement<JSX.Element> {
@@ -43,9 +43,7 @@ export function FormLogin(): React.FunctionComponentElement<JSX.Element> {
 		}
 	};
 
-	return token ? (
-		<Navigate to='/private/application' />
-	) : (
+	return (
 		<Layout title='Login Form'>
 			<main>
 				<h2>Login</h2>
