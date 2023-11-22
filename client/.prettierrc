@@ -10,7 +10,6 @@
 	"jsxSingleQuote": true,
 	"proseWrap": "preserve",
 	"insertPragma": false,
-	"useTabs": true,
 	"quoteProps": "as-needed",
 	"endOfLine": "crlf"
 }

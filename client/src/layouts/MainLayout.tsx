@@ -5,7 +5,7 @@ import Header from '../partials/Header';
 import Footer from '../partials/Footer';
 
 type Props = {
-	children?: React.ReactNode;
+	children: React.ReactNode;
 	title?: string;
 };
 

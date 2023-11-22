@@ -3,11 +3,11 @@ import React from 'react';
 import Head from '../partials/Head';
 
 type Props = {
-	children?: React.ReactNode;
+	children: React.ReactNode;
 	title?: string;
 };
 
-const Layout: React.FunctionComponent<Props> = ({ children, title }: Props) => (
+const Layout = ({ children, title }: Props): JSX.Element => (
 	<>
 		<Head title={title} />
 		{children}

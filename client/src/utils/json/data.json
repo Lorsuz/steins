@@ -1,0 +1,42 @@
+{
+	"sponsors": [
+		{
+			"image": "./components/assets/images/Sponsors/Drogamix.png",
+			"alt": ""
+		},
+		{
+			"image": "./components/assets/images/Sponsors/Lfbets.png",
+			"alt": ""
+		},
+		{
+			"image": "./components/assets/images/Sponsors/Haras.png",
+			"alt": ""
+		},
+		{
+			"image": "./components/assets/images/Sponsors/La-Dame-Femme.png",
+			"alt": ""
+		}
+	],
+	"banner": [
+		{
+			"image": "image-1.jpg",
+			"alt": ""
+		},
+		{
+			"image": "image-2.jpg",
+			"alt": ""
+		},
+		{
+			"image": "image-5.jpg",
+			"alt": ""
+		},
+		{
+			"image": "image-4.jpg",
+			"alt": ""
+		},
+		{
+			"image": "image-3.jpg",
+			"alt": ""
+		}
+	]
+}

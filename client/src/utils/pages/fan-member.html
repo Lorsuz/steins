@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+	</head>
+	<body>
+		<form>
+			<h1>Inscreva-se para desfilar conosco</h1>
+			<!-- Nome -->
+			<label for="nome">Nome</label>
+			<input type="text" id="nome" name="nome" placeholder="João Silva" required>
+			<div id="mensagemValidacaoNome" style="color: red;"></div><br>
+			<!-- E-mail -->
+			<label for="email">E-mail</label>
+			<input type="email" id="email" name="email" placeholder="joao.silva@joaosilva.com.br" required>
+			<div id="mensagemValidacaoEmail" style="color: red;"></div><br>
+			<!-- Telefone -->
+			<label for="telefone">Telefone</label>
+			<input type="tel" id="telefone" name="telefone" placeholder="(XX) X.XXXX-XXXX" required>
+			<div id="mensagemValidacaoTelefone" style="color: red;"></div><br>
+			<!-- Data de Nascimento -->
+			<label for="dataNascimento">Data de Nascimento</label>
+			<input type="text" id="dataNascimento" name="dataNascimento" placeholder="DD/MM/AAAA" required>
+			<div id="mensagemValidacaoDataNascimento" style="color: red;"></div><br>
+			<!-- CPF -->
+			<label for="cpf">CPF</label>
+			<input type="text" id="cpf" name="cpf" placeholder="123.456.789-00" required>
+			<div id="mensagemValidacaoCPF" style="color: red;"></div><br>
+			<!-- Logradouro -->
+			<label for="logradouro">Logradouro</label>
+			<input type="text" id="logradouro" name="logradouro" placeholder="Rua do Império" required>
+			<div id="mensagemValidacaoLogradouro" style="color: red;"></div><br>
+			<!-- Número -->
+			<label for="numero">Número</label>
+			<input type="text" id="numero" name="numero" placeholder="573" required>
+			<div id="mensagemValidacaoNumero" style="color: red;"></div><br>
+			<!-- CEP -->
+			<label for="cep">CEP</label>
+			<input type="text" id="cep" name="cep" placeholder="23.555-024" required>
+			<div id="mensagemValidacaoCEP" style="color: red;"></div><br>
+			<!-- Complemento -->
+			<label for="complemento">Complemento</label>
+			<input type="text" id="complemento" name="complemento" placeholder="Quadra"><br>
+			<!-- Bairro -->
+			<label for="bairro">Bairro</label>
+			<input type="text" id="bairro" name="bairro" placeholder="Santa Cruz" required>
+			<div id="mensagemValidacaoBairro" style="color: red;"></div><br>
+			<!-- Cidade -->
+			<label for="cidade">Cidade</label>
+			<input type="text" id="cidade" name="cidade" placeholder="Rio de Janeiro" required>
+			<div id="mensagemValidacaoCidade" style="color: red;"></div><br>
+			<!-- Estado -->
+			<label for="estado">Estado</label>
+			<select id="estado" name="estado" required>
+				<option value="">UF</option>
+				<option value="AC">AC</option>
+				<option value="AL">AL</option>
+				<option value="AP">AP</option>
+				<option value="AM">AM</option>
+				<option value="BA">BA</option>
+				<option value="CE">CE</option>
+				<option value="DF">DF</option>
+				<option value="ES">ES</option>
+				<option value="GO">GO</option>
+				<option value="MA">MA</option>
+				<option value="MT">MT</option>
+				<option value="MS">MS</option>
+				<option value="MG">MG</option>
+				<option value="PA">PA</option>
+				<option value="PB">PB</option>
+				<option value="PR">PR</option>
+				<option value="PE">PE</option>
+				<option value="PI">PI</option>
+				<option value="RJ">RJ</option>
+				<option value="RN">RN</option>
+				<option value="RS">RS</option>
+				<option value="RO">RO</option>
+				<option value="RR">RR</option>
+				<option value="SC">SC</option>
+				<option value="SP">SP</option>
+				<option value="SE">SE</option>
+				<option value="TO">TO</option>
+			</select>
+			<div id="mensagemValidacaoEstado" style="color: red;"></div><br>
+			<!-- País -->
+			<label for="pais">País</label>
+			<input type="text" id="pais" name="pais" placeholder="Brasil" required>
+			<div id="mensagemValidacaoPais" style="color: red;"></div><br>
+			<!-- Altura -->
+			<label for="altura">Altura</label>
+			<input type="text" id="altura" name="altura" placeholder="1,70cm" required>
+			<div id="mensagemValidacaoAltura" style="color: red;"></div><br>
+			<!-- Peso -->
+			<label for="peso">Peso</label>
+			<input type="text" id="peso" name="peso" placeholder="80kg" required>
+			<div id="mensagemValidacaoPeso" style="color: red;"></div><br>
+			<!-- Tamanho -->
+			<label for="tamanho">Manequim:</label>
+			<select id="tamanho" name="tamanho">
+				<option value=""></option>
+				<option value="PP">PP</option>
+				<option value="P">P</option>
+				<option value="M">M</option>
+				<option value="G">G</option>
+				<option value="GG">GG</option>
+				<option value="XXG">XXG</option>
+			</select>
+			<div id="mensagemValidacaoTamanho" style="color: red;"></div><br>
+			<!-- Experiência em desfiles -->
+			<div class="question-container">
+				<p class="question">Experiência em desfiles?</p>
+				<div class="radio-group">
+					<input type="radio" id="experiencia-sim" name="experiencia" value="Sim">
+					<label for="experiencia-sim">Sim</label>
+					<input type="radio" id="experiencia-nao" name="experiencia" value="Não">
+					<label for="experiencia-nao">Não</label>
+				</div>
+			</div>
+			<!-- É sócio Torcedor? -->
+			<div class="question-container">
+				<p class="question">É sócio Torcedor?</p>
+				<div class="radio-group">
+					<input type="radio" id="socio-sim" name="socio" value="Sim">
+					<label for="socio-sim">Sim</label>
+					<input type="radio" id="socio-nao" name="socio" value="Não">
+					<label for="socio-nao">Não</label>
+				</div>
+			</div>
+			<!-- Label dinâmica para inscrição -->
+			<div id="inscricaoLabel" style="display: none;">
+				<label for="inscricao">Insira sua inscrição de sócio:</label>
+				<input type="text" id="inscricao" name="inscricao">
+			</div>
+			<input type="submit" value="Enviar">
+		</form>
+	</body>
+</html>
